@@ -35,13 +35,11 @@ export default function MarketCountdown({
 
         let targetHour: number;
         let targetMinute: number;
-        let targetLabel: string;
 
         if (status === "open") {
           // 如果市场开盘，倒计时到收盘
           targetHour = closeHour;
           targetMinute = closeMinute;
-          targetLabel = "收盘";
         } else {
           // 如果市场收盘，倒计时到开盘
           // 检查是否是今天开盘还是明天开盘
@@ -52,7 +50,6 @@ export default function MarketCountdown({
             // 今天是交易日，但还没到开盘时间
             targetHour = openHour;
             targetMinute = openMinute;
-            targetLabel = "开盘";
           } else {
             // 找到下一个交易日
             let daysToAdd = 1;
@@ -65,7 +62,6 @@ export default function MarketCountdown({
 
             targetHour = openHour;
             targetMinute = openMinute;
-            targetLabel = `${daysToAdd}天后开盘`;
 
             // 如果是下一个交易日，直接返回天数
             if (daysToAdd > 0) {
@@ -113,10 +109,10 @@ export default function MarketCountdown({
   }, [market, status]);
 
   return (
-    <div className="mt-2">
-      <p className="text-xs text-gray-700 dark:text-gray-400">
+    <div className="mt-2 p-1 rounded bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
+      <p className="text-xs text-gray-700 dark:text-gray-300">
         {status === "open" ? "距离收盘还有:" : "距离开盘还有:"}
-        <span className="font-mono font-medium ml-1 text-gray-900 dark:text-gray-200">{countdown}</span>
+        <span className="font-mono font-medium ml-1 text-gray-800 dark:text-gray-100">{countdown}</span>
       </p>
     </div>
   );

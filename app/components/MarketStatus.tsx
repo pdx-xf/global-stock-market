@@ -72,29 +72,29 @@ function MarketStatusItem({ market }: MarketStatusProps) {
     // 立即检查一次
     checkStatus();
     
-    // 每分钟检查一次
-    const interval = setInterval(checkStatus, 60000);
+    // 每秒检查一次，而不是每分钟
+    const interval = setInterval(checkStatus, 1000);
     
     return () => clearInterval(interval);
   }, [market]);
   
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-      <div className="flex justify-between items-start mb-2">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{market.name}</h3>
-        <span className={`px-2 py-1 text-xs rounded-full ${status === 'open' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'}`}>
+    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200 dark:border-gray-700">
+      <div className="flex justify-between items-start mb-2 flex-wrap gap-2">
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{market.name}</h3>
+        <span className={`inline-block px-2 py-1 text-xs rounded-full whitespace-nowrap ${status === 'open' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'}`}>
           {status === 'open' ? '交易中' : '已收盘'}
         </span>
       </div>
-      <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">{market.country}</p>
-      <p className="text-xs text-gray-700 dark:text-gray-400 mb-1">交易时间: {market.openingTime} - {market.closingTime}</p>
-      <p className="text-xs text-gray-700 dark:text-gray-400">当地时间: {localTime}</p>
+      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{market.country}</p>
+      <p className="text-xs text-gray-600 dark:text-gray-400 mb-1">交易时间: {market.openingTime} - {market.closingTime}</p>
+      <p className="text-xs text-gray-600 dark:text-gray-400">当地时间: {localTime}</p>
       
       {/* 添加倒计时组件 */}
       <MarketCountdown market={market} status={status} />
       
       {market.description && (
-        <p className="mt-2 text-xs text-gray-700 dark:text-gray-300">{market.description}</p>
+        <p className="mt-2 text-xs text-gray-600 dark:text-gray-300">{market.description}</p>
       )}
     </div>
   );
@@ -162,7 +162,7 @@ export default function MarketStatus() {
       
       {filteredMarkets.length === 0 ? (
         <div className="text-center py-8">
-          <p className="text-gray-700 dark:text-gray-400">没有找到匹配的股市</p>
+          <p className="text-gray-600 dark:text-gray-400">没有找到匹配的股市</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">

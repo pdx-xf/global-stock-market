@@ -38,16 +38,16 @@ export default function MarketFilter({ onFilterChange }: MarketFilterProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md mb-4">
+    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md mb-4 border border-gray-200 dark:border-gray-700">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
-          <label htmlFor="search" className="block text-sm font-medium text-gray-800 dark:text-gray-300 mb-1">
+          <label htmlFor="search" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             搜索股市
           </label>
           <input
             type="text"
             id="search"
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white text-gray-900"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white text-gray-800"
             placeholder="输入股市名称..."
             value={searchTerm}
             onChange={handleSearchChange}
@@ -55,12 +55,12 @@ export default function MarketFilter({ onFilterChange }: MarketFilterProps) {
         </div>
         
         <div>
-          <label htmlFor="country" className="block text-sm font-medium text-gray-800 dark:text-gray-300 mb-1">
+          <label htmlFor="country" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             国家/地区
           </label>
           <select
             id="country"
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white text-gray-900"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white text-gray-800"
             value={country}
             onChange={handleCountryChange}
           >
@@ -72,12 +72,12 @@ export default function MarketFilter({ onFilterChange }: MarketFilterProps) {
         </div>
         
         <div>
-          <label htmlFor="status" className="block text-sm font-medium text-gray-800 dark:text-gray-300 mb-1">
+          <label htmlFor="status" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             交易状态
           </label>
           <select
             id="status"
-            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white text-gray-900"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-white text-gray-800"
             value={status}
             onChange={handleStatusChange}
           >

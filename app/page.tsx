@@ -10,10 +10,10 @@ export default function Home() {
           <ThemeToggle />
         </div>
         <h1 className="text-3xl md:text-4xl font-bold mb-2 text-center">世界股市时钟</h1>
-        <p className="text-gray-700 dark:text-gray-300 text-center">查看世界各地股市开盘时间和当前状态</p>
+        <p className="text-gray-600 dark:text-gray-300 text-center">查看世界各地股市开盘时间和当前状态</p>
       </header>
       
-      <main className="max-w-7xl mx-auto flex flex-col gap-8">
+      <main className="max-w-7xl mx-auto flex flex-col gap-8 text-gray-700 dark:text-gray-200">
         <section className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg shadow-sm">
           <h2 className="text-xl md:text-2xl font-semibold mb-4">世界时钟</h2>
           <WorldClock />
@@ -25,7 +25,7 @@ export default function Home() {
         </section>
       </main>
       
-      <footer className="mt-12 text-center text-sm text-gray-700 dark:text-gray-400">
+      <footer className="mt-12 text-center text-sm text-gray-600 dark:text-gray-400">
         <p>© {new Date().getFullYear()} 世界股市时钟 | 基于 Next.js 开发</p>
       </footer>
     </div>

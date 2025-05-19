@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 世界股市时钟应用
 
-## Getting Started
+这是一个基于Next.js开发的世界各地股市开盘时间和世界时间查看应用。用户可以实时查看世界各地主要股市的开盘状态和当地时间。
 
-First, run the development server:
+## 功能特点
+
+- 实时显示世界各地主要城市的当前时间
+- 显示主要股票市场的开盘和收盘时间
+- 根据当前时间自动计算各股市的开盘/收盘状态
+- 响应式设计，适配各种设备屏幕
+- 支持深色模式
+
+## 包含的股市
+
+- 纽约证券交易所 (NYSE)
+- 纳斯达克 (NASDAQ)
+- 上海证券交易所 (SSE)
+- 深圳证券交易所 (SZSE)
+- 东京证券交易所 (TSE)
+- 伦敦证券交易所 (LSE)
+- 香港交易所 (HKEX)
+- 法兰克福证券交易所 (FWB)
+- 多伦多证券交易所 (TSX)
+- 澳大利亚证券交易所 (ASX)
+
+## 技术栈
+
+- Next.js 14
+- React
+- TypeScript
+- Tailwind CSS
+- Intl API (用于时区和时间格式化)
+
+## 开始使用
+
+首先，运行开发服务器：
 
 ```bash
 npm run dev
-# or
+# 或
 yarn dev
-# or
+# 或
 pnpm dev
-# or
+# 或
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+在浏览器中打开 [http://localhost:3000](http://localhost:3000) 查看结果。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 部署
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+最简单的部署方式是使用 [Vercel Platform](https://vercel.com/new)，这是 Next.js 的创建者提供的平台。
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+查看 [Next.js 部署文档](https://nextjs.org/docs/app/building-your-application/deploying) 了解更多详情。

@@ -124,23 +124,23 @@ function MarketStatusItem({ market }: MarketStatusProps) {
     switch (status) {
       case "pre-market":
         return {
-          className: "bg-blue-500 text-white shadow-sm",
+          className: "bg-black text-white text-xs px-2 py-1",
           text: "盘前交易",
         };
       case "open":
         return {
-          className: "bg-green-500 text-white shadow-sm",
-          text: "正常交易",
+          className: "bg-black text-white text-xs px-2 py-1",
+          text: "交易中",
         };
       case "after-hours":
         return {
-          className: "bg-orange-500 text-white shadow-sm",
+          className: "bg-black text-white text-xs px-2 py-1",
           text: "盘后交易",
         };
       case "closed":
       default:
         return {
-          className: "bg-gray-500 text-white shadow-sm",
+          className: "bg-white text-black border border-gray-300 text-xs px-2 py-1",
           text: "已收盘",
         };
     }
@@ -149,41 +149,34 @@ function MarketStatusItem({ market }: MarketStatusProps) {
   const statusConfig = getStatusConfig();
 
   return (
-    <div className="bg-white p-4 rounded-lg shadow-md hover:shadow-xl transition-all border border-gray-200 hover:border-gray-300">
-      <div className="flex justify-between items-start mb-2 flex-wrap gap-2">
-        <h3 className="text-lg font-semibold text-gray-800">
+    <div className="bg-white p-5 border border-gray-200 hover:border-black transition-colors">
+      <div className="flex justify-between items-start mb-3 gap-2">
+        <h3 className="text-base font-light text-black">
           {market.name}
         </h3>
-        <span
-          className={`inline-block px-3 py-1 text-xs font-medium rounded-full whitespace-nowrap ${statusConfig.className}`}
-        >
+        <span className={`whitespace-nowrap font-light ${statusConfig.className}`}>
           {statusConfig.text}
         </span>
       </div>
-      <p className="text-sm text-gray-600 mb-2 font-medium">
+      
+      <p className="text-xs text-gray-500 mb-3 font-light">
         {market.country}
       </p>
 
       {/* 显示交易时间 */}
       {market.preMarketTime && market.afterMarketTime ? (
-        <div className="text-xs text-gray-600 mb-1 space-y-0.5">
-          <p>
-            盘前交易: {market.preMarketTime} - {market.openingTime}
-          </p>
-          <p>
-            正常交易: {market.openingTime} - {market.closingTime}
-          </p>
-          <p>
-            盘后交易: {market.closingTime} - {market.afterMarketTime}
-          </p>
+        <div className="text-xs text-gray-600 mb-3 space-y-1 font-light">
+          <p>盘前交易: {market.preMarketTime} - {market.openingTime}</p>
+          <p>正常交易: {market.openingTime} - {market.closingTime}</p>
+          <p>盘后交易: {market.closingTime} - {market.afterMarketTime}</p>
         </div>
       ) : (
-        <p className="text-xs text-gray-600 mb-1">
+        <p className="text-xs text-gray-600 mb-3 font-light">
           交易时间: {market.openingTime} - {market.closingTime}
         </p>
       )}
 
-      <p className="text-xs text-gray-600">
+      <p className="text-xs text-gray-600 font-light mb-2">
         当地时间: {localTime}
       </p>
 
@@ -191,7 +184,7 @@ function MarketStatusItem({ market }: MarketStatusProps) {
       <MarketCountdown market={market} status={status} />
 
       {market.description && (
-        <p className="mt-2 text-xs text-gray-600">
+        <p className="mt-3 pt-3 border-t border-gray-200 text-xs text-gray-500 font-light">
           {market.description}
         </p>
       )}
@@ -299,11 +292,13 @@ export default function MarketStatus() {
       <MarketFilter onFilterChange={handleFilterChange} />
 
       {filteredMarkets.length === 0 ? (
-        <div className="text-center py-8">
-          <p className="text-gray-600">没有找到匹配的股市</p>
+        <div className="text-center py-16">
+          <p className="text-gray-400 text-sm font-light">
+            没有找到匹配的股市
+          </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-full">
           {filteredMarkets.map((market) => (
             <MarketStatusItem key={market.name} market={market} />
           ))}

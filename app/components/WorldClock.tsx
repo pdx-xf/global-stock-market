@@ -35,11 +35,16 @@ export default function WorldClock() {
   }, []);
   
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 w-full">
       {majorTimezones.map(({ name }) => (
-        <div key={name} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg border border-gray-200 transition-all hover:scale-105">
-          <h3 className="text-lg font-semibold mb-1 text-gray-700">{name}</h3>
-          <p className="text-2xl font-mono text-gray-800 font-bold">{times[name] || '--:--:--'}</p>
+        <div 
+          key={name} 
+          className="bg-white p-5 border border-gray-200 hover:border-black transition-colors"
+        >
+          <h3 className="text-xs text-gray-500 mb-2 font-light uppercase tracking-wider">{name}</h3>
+          <p className="text-2xl font-mono text-black font-light tabular-nums">
+            {times[name] || '--:--:--'}
+          </p>
         </div>
       ))}
     </div>

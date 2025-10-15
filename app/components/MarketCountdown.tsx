@@ -175,13 +175,13 @@ export default function MarketCountdown({
   };
 
   return (
-    <div className="mt-2 p-2 rounded-md bg-gray-50 border border-gray-200">
-      <p className="text-xs text-gray-700">
-        {getCountdownLabel()}
-        <span className="font-mono font-bold ml-1 text-gray-800">
+    <div className="mt-3 pt-3 border-t border-gray-200">
+      <div className="flex items-center justify-between text-xs">
+        <span className="text-gray-500 font-light">{getCountdownLabel()}</span>
+        <span className="font-mono text-black font-light tabular-nums">
           {countdown}
         </span>
-      </p>
+      </div>
     </div>
   );
 }

@@ -6,6 +6,9 @@ export interface StockMarket {
   closingTime: string; // 格式: "HH:MM"
   weekdays: number[]; // 0-6, 0代表周日
   description?: string;
+  // 盘前盘后交易时间（可选，主要用于美股）
+  preMarketTime?: string; // 盘前开始时间
+  afterMarketTime?: string; // 盘后结束时间
 }
 
 export const stockMarkets: StockMarket[] = [
@@ -15,6 +18,8 @@ export const stockMarkets: StockMarket[] = [
     timezone: "America/New_York",
     openingTime: "09:30",
     closingTime: "16:00",
+    preMarketTime: "04:00",
+    afterMarketTime: "20:00",
     weekdays: [1, 2, 3, 4, 5],
     description: "世界最大的证券交易所"
   },
@@ -24,6 +29,8 @@ export const stockMarkets: StockMarket[] = [
     timezone: "America/New_York",
     openingTime: "09:30",
     closingTime: "16:00",
+    preMarketTime: "04:00",
+    afterMarketTime: "20:00",
     weekdays: [1, 2, 3, 4, 5],
     description: "世界第二大证券交易所"
   },

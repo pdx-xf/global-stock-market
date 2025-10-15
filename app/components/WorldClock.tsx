@@ -37,9 +37,9 @@ export default function WorldClock() {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
       {majorTimezones.map(({ name }) => (
-        <div key={name} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md border border-gray-200 dark:border-gray-700">
-          <h3 className="text-lg font-semibold mb-1 text-gray-700 dark:text-gray-200">{name}</h3>
-          <p className="text-2xl font-mono text-gray-800 dark:text-gray-100">{times[name] || '--:--:--'}</p>
+        <div key={name} className="bg-white p-4 rounded-lg shadow-md hover:shadow-lg border border-gray-200 transition-all hover:scale-105">
+          <h3 className="text-lg font-semibold mb-1 text-gray-700">{name}</h3>
+          <p className="text-2xl font-mono text-gray-800 font-bold">{times[name] || '--:--:--'}</p>
         </div>
       ))}
     </div>

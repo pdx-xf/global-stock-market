@@ -124,24 +124,24 @@ function MarketStatusItem({ market }: MarketStatusProps) {
     switch (status) {
       case "pre-market":
         return {
-          className: "bg-black text-white text-xs px-2 py-1",
           text: "盘前交易",
+          isActive: true,
         };
       case "open":
         return {
-          className: "bg-black text-white text-xs px-2 py-1",
           text: "交易中",
+          isActive: true,
         };
       case "after-hours":
         return {
-          className: "bg-black text-white text-xs px-2 py-1",
           text: "盘后交易",
+          isActive: true,
         };
       case "closed":
       default:
         return {
-          className: "bg-white text-black border border-gray-300 text-xs px-2 py-1",
           text: "已收盘",
+          isActive: false,
         };
     }
   };
@@ -149,34 +149,57 @@ function MarketStatusItem({ market }: MarketStatusProps) {
   const statusConfig = getStatusConfig();
 
   return (
-    <div className="bg-white p-5 border border-gray-200 hover:border-black transition-colors">
+    <div 
+      className="p-5 border transition-colors"
+      style={{
+        backgroundColor: 'var(--card-bg)',
+        borderColor: 'var(--border)'
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.borderColor = 'var(--hover-border)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.borderColor = 'var(--border)';
+      }}
+    >
       <div className="flex justify-between items-start mb-3 gap-2">
-        <h3 className="text-base font-light text-black">
+        <h3 className="text-base font-light" style={{ color: 'var(--foreground)' }}>
           {market.name}
         </h3>
-        <span className={`whitespace-nowrap font-light ${statusConfig.className}`}>
+        <span 
+          className="whitespace-nowrap font-light text-xs px-2 py-1 border"
+          style={statusConfig.isActive ? {
+            backgroundColor: 'var(--accent-bg)',
+            color: 'var(--accent-fg)',
+            borderColor: 'var(--accent-bg)'
+          } : {
+            backgroundColor: 'var(--status-closed-bg)',
+            color: 'var(--status-closed-fg)',
+            borderColor: 'var(--status-closed-border)'
+          }}
+        >
           {statusConfig.text}
         </span>
       </div>
       
-      <p className="text-xs text-gray-500 mb-3 font-light">
+      <p className="text-xs mb-3 font-light" style={{ color: 'var(--secondary)' }}>
         {market.country}
       </p>
 
       {/* 显示交易时间 */}
       {market.preMarketTime && market.afterMarketTime ? (
-        <div className="text-xs text-gray-600 mb-3 space-y-1 font-light">
+        <div className="text-xs mb-3 space-y-1 font-light" style={{ color: 'var(--muted)' }}>
           <p>盘前交易: {market.preMarketTime} - {market.openingTime}</p>
           <p>正常交易: {market.openingTime} - {market.closingTime}</p>
           <p>盘后交易: {market.closingTime} - {market.afterMarketTime}</p>
         </div>
       ) : (
-        <p className="text-xs text-gray-600 mb-3 font-light">
+        <p className="text-xs mb-3 font-light" style={{ color: 'var(--muted)' }}>
           交易时间: {market.openingTime} - {market.closingTime}
         </p>
       )}
 
-      <p className="text-xs text-gray-600 font-light mb-2">
+      <p className="text-xs font-light mb-2" style={{ color: 'var(--muted)' }}>
         当地时间: {localTime}
       </p>
 
@@ -184,7 +207,7 @@ function MarketStatusItem({ market }: MarketStatusProps) {
       <MarketCountdown market={market} status={status} />
 
       {market.description && (
-        <p className="mt-3 pt-3 border-t border-gray-200 text-xs text-gray-500 font-light">
+        <p className="mt-3 pt-3 border-t text-xs font-light" style={{ borderColor: 'var(--border)', color: 'var(--secondary)' }}>
           {market.description}
         </p>
       )}
@@ -293,7 +316,7 @@ export default function MarketStatus() {
 
       {filteredMarkets.length === 0 ? (
         <div className="text-center py-16">
-          <p className="text-gray-400 text-sm font-light">
+          <p className="text-sm font-light" style={{ color: 'var(--muted)' }}>
             没有找到匹配的股市
           </p>
         </div>

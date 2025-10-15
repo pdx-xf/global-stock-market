@@ -175,10 +175,12 @@ export default function MarketCountdown({
   };
 
   return (
-    <div className="mt-3 pt-3 border-t border-gray-200">
+    <div className="mt-3 pt-3 border-t" style={{ borderColor: 'var(--border)' }}>
       <div className="flex items-center justify-between text-xs">
-        <span className="text-gray-500 font-light">{getCountdownLabel()}</span>
-        <span className="font-mono text-black font-light tabular-nums">
+        <span className="font-light" style={{ color: 'var(--secondary)' }}>
+          {getCountdownLabel()}
+        </span>
+        <span className="font-mono font-light tabular-nums" style={{ color: 'var(--foreground)' }}>
           {countdown}
         </span>
       </div>

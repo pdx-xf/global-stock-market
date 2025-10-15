@@ -3,18 +3,42 @@
 @theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  
-  /* 简约风格配色 */
-  --color-primary: #000000;
-  --color-secondary: #666666;
-  --color-border: #e5e5e5;
-  --color-bg: #ffffff;
-  --color-accent: #000000;
 }
 
+/* 亮色主题（默认） */
 :root {
   --background: #ffffff;
   --foreground: #000000;
+  --secondary: #666666;
+  --border: #e5e5e5;
+  --hover-border: #000000;
+  --card-bg: #ffffff;
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --muted: #6b7280;
+  --accent-bg: #000000;
+  --accent-fg: #ffffff;
+  --status-closed-bg: #ffffff;
+  --status-closed-fg: #000000;
+  --status-closed-border: #d1d5db;
+}
+
+/* 暗色主题 */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --secondary: #a0a0a0;
+  --border: #2a2a2a;
+  --hover-border: #ffffff;
+  --card-bg: #141414;
+  --input-bg: #1a1a1a;
+  --input-border: #2a2a2a;
+  --muted: #737373;
+  --accent-bg: #ffffff;
+  --accent-fg: #000000;
+  --status-closed-bg: #1a1a1a;
+  --status-closed-fg: #ffffff;
+  --status-closed-border: #2a2a2a;
 }
 
 body {
@@ -29,23 +53,36 @@ body {
 
 /* 简约风格的过渡效果 */
 * {
-  transition: all 0.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-/* 简约风格滚动条 */
-::-webkit-scrollbar {
+/* 亮色主题滚动条 */
+:root::-webkit-scrollbar {
   width: 8px;
 }
 
-::-webkit-scrollbar-track {
+:root::-webkit-scrollbar-track {
   background: #f5f5f5;
 }
 
-::-webkit-scrollbar-thumb {
+:root::-webkit-scrollbar-thumb {
   background: #d0d0d0;
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
+:root::-webkit-scrollbar-thumb:hover {
   background: #a0a0a0;
+}
+
+/* 暗色主题滚动条 */
+.dark::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.dark::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+}
+
+.dark::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
 }

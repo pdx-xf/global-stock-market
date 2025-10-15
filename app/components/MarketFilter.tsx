@@ -38,16 +38,27 @@ export default function MarketFilter({ onFilterChange }: MarketFilterProps) {
   };
 
   return (
-    <div className="bg-white p-6 border border-gray-200 mb-8">
+    <div className="p-6 border mb-8" style={{ backgroundColor: 'var(--card-bg)', borderColor: 'var(--border)' }}>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div>
-          <label htmlFor="search" className="block text-xs text-gray-500 mb-2 font-light uppercase tracking-wider">
+          <label htmlFor="search" className="block text-xs mb-2 font-light uppercase tracking-wider" style={{ color: 'var(--secondary)' }}>
             搜索
           </label>
           <input
             type="text"
             id="search"
-            className="w-full px-3 py-2 bg-white border border-gray-300 focus:outline-none focus:border-black text-sm text-black font-light"
+            className="w-full px-3 py-2 border focus:outline-none text-sm font-light transition-colors"
+            style={{
+              backgroundColor: 'var(--input-bg)',
+              borderColor: 'var(--input-border)',
+              color: 'var(--foreground)'
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = 'var(--hover-border)';
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = 'var(--input-border)';
+            }}
             placeholder="股市名称..."
             value={searchTerm}
             onChange={handleSearchChange}
@@ -55,12 +66,23 @@ export default function MarketFilter({ onFilterChange }: MarketFilterProps) {
         </div>
         
         <div>
-          <label htmlFor="country" className="block text-xs text-gray-500 mb-2 font-light uppercase tracking-wider">
+          <label htmlFor="country" className="block text-xs mb-2 font-light uppercase tracking-wider" style={{ color: 'var(--secondary)' }}>
             国家/地区
           </label>
           <select
             id="country"
-            className="w-full px-3 py-2 bg-white border border-gray-300 focus:outline-none focus:border-black text-sm text-black font-light cursor-pointer"
+            className="w-full px-3 py-2 border focus:outline-none text-sm font-light cursor-pointer transition-colors"
+            style={{
+              backgroundColor: 'var(--input-bg)',
+              borderColor: 'var(--input-border)',
+              color: 'var(--foreground)'
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = 'var(--hover-border)';
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = 'var(--input-border)';
+            }}
             value={country}
             onChange={handleCountryChange}
           >
@@ -72,12 +94,23 @@ export default function MarketFilter({ onFilterChange }: MarketFilterProps) {
         </div>
         
         <div>
-          <label htmlFor="status" className="block text-xs text-gray-500 mb-2 font-light uppercase tracking-wider">
+          <label htmlFor="status" className="block text-xs mb-2 font-light uppercase tracking-wider" style={{ color: 'var(--secondary)' }}>
             状态
           </label>
           <select
             id="status"
-            className="w-full px-3 py-2 bg-white border border-gray-300 focus:outline-none focus:border-black text-sm text-black font-light cursor-pointer"
+            className="w-full px-3 py-2 border focus:outline-none text-sm font-light cursor-pointer transition-colors"
+            style={{
+              backgroundColor: 'var(--input-bg)',
+              borderColor: 'var(--input-border)',
+              color: 'var(--foreground)'
+            }}
+            onFocus={(e) => {
+              e.currentTarget.style.borderColor = 'var(--hover-border)';
+            }}
+            onBlur={(e) => {
+              e.currentTarget.style.borderColor = 'var(--input-border)';
+            }}
             value={status}
             onChange={handleStatusChange}
           >

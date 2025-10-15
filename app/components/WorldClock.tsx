@@ -39,10 +39,22 @@ export default function WorldClock() {
       {majorTimezones.map(({ name }) => (
         <div 
           key={name} 
-          className="bg-white p-5 border border-gray-200 hover:border-black transition-colors"
+          className="p-5 border transition-colors"
+          style={{
+            backgroundColor: 'var(--card-bg)',
+            borderColor: 'var(--border)'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.borderColor = 'var(--hover-border)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.borderColor = 'var(--border)';
+          }}
         >
-          <h3 className="text-xs text-gray-500 mb-2 font-light uppercase tracking-wider">{name}</h3>
-          <p className="text-2xl font-mono text-black font-light tabular-nums">
+          <h3 className="text-xs mb-2 font-light uppercase tracking-wider" style={{ color: 'var(--secondary)' }}>
+            {name}
+          </h3>
+          <p className="text-2xl font-mono font-light tabular-nums" style={{ color: 'var(--foreground)' }}>
             {times[name] || '--:--:--'}
           </p>
         </div>
